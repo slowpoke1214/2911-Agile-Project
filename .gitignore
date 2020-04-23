@@ -1,0 +1,17 @@
+#General
+node_modules
+.env
+
+#Logs
+logs
+*.logs
+
+#Dumb Mac OS File's
+.DS_Store
+.AppleDouble
+.LSOverride
+
+#IDE's
+.idea
+.vscode
+
