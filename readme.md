@@ -1,4 +1,4 @@
-![](/demo/src/logo.jpeg)
+![](/demo/static/logo.jpeg)
 
 - - -
 Technolot is a simple Node.js based platform for people to upload text-based ideas, serve though a web interface.
