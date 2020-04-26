@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="./src/js/jquery-url.min.js"></script>
+    <link rel="stylesheet" href="./src/css/main.css">
+    <link rel="stylesheet" href="./src/css/index.css">
+    <title>Technolot | a Parking lot for ideas</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><b><a href="/">Technolot</a></b></li>
+            <li id="navItemRegister"><a href="/register.html">Register</a></li>
+            <li id="navItemLogin"><a href="/login.html">Login</a></li>
+            <li id="navItemAddPost"><a href="/addPost.html">Add Post</a></li>
+            <li id="navItemLogout"><a href="/logout.html">Logout</a></li>
+        </ul>
+    </nav>
+    <!-- End of nav bar -->
+    <div id="wrapper">
+        <!-- Posts Area -->
+        <div id="postlot">
+            <!-- Individual Post Template -->
+            <a class="post" href="/">
+                <div>
+                    <h3>Title</h3>
+                    <small>Username</small>
+                    <div class="tags">
+                        <small>tag1</small>
+                    </div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, ipsum?</p>
+                </div>
+            </a>
+            <!-- End of Individual Post -->
+        </div>
+        <!-- End of Posts Area -->
+    </div>
+</body>
+<script src="./src/js/navbar.js"></script>
+<script src="./src/js/index.js"></script>
+</html>

@@ -1,0 +1,56 @@
+form {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    -webkit-box-pack: center;
+            justify-content: center;
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+form > div {
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    margin: 0.5rem;
+}
+
+form > div > label {
+    -webkit-box-flex: 1;
+            flex: 1 999 10rem;
+}
+
+form > div > input, form > div > textarea {
+    -webkit-box-flex: 999;
+            flex: 999 1 10rem;
+}
+
+button {
+    display: block;
+    width: 5rem;
+    margin: auto;
+}
+
+#errorMessage {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    background: white;
+    max-width: 1280px;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 6px;
+}
+
+#errorMessage > h3 {
+    margin-bottom: 0;
+}

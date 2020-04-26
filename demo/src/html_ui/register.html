@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="./src/js/jquery-url.min.js"></script>
+    <link rel="stylesheet" href="./src/css/main.css">
+    <link rel="stylesheet" href="./src/css/register.css">
+    <title>Register</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><b><a href="/">Technolot</a></b></li>
+            <li id="navItemRegister"><a href="/register.html">Register</a></li>
+            <li id="navItemLogin"><a href="/login.html">Login</a></li>
+            <li id="navItemAddPost"><a href="/addPost.html">Add Post</a></li>
+            <li id="navItemLogout"><a href="/logout.html">Logout</a></li>
+        </ul>
+    </nav>
+    <!-- End of nav bar -->
+    <form action="/" id="registerUser">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="usernameInput" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="emailInput" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="passwordInput" required>
+        </div>
+        <div>
+            <label for="passwordConfirm">Confirm Password:</label>
+            <input type="password" name="passwordConfirm" id="passwordConfirmInput" required>
+        </div>
+        <button type="submit">Submit</button>
+        <div id="errorMessage">
+            <h3>Title</h3>
+            <p>Message: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum, quasi!</p>
+        </div>
+    </form>
+</body>
+<script src="./src/js/navbar.js"></script>
+<script src="/src/js/register.js"></script>
+</html>

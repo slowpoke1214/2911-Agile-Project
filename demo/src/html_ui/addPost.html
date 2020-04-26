@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="./src/js/jquery-url.min.js"></script>
+    <link rel="stylesheet" href="./src/css/main.css">
+    <link rel="stylesheet" href="./src/css/register.css">
+    <title>Add Post</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><b><a href="/">Technolot</a></b></li>
+            <li id="navItemRegister"><a href="/register.html">Register</a></li>
+            <li id="navItemLogin"><a href="/login.html">Login</a></li>
+            <li id="navItemAddPost"><a href="/addPost.html">Add Post</a></li>
+            <li id="navItemLogout"><a href="/logout.html">Logout</a></li>
+        </ul>
+    </nav>
+    <!-- End of nav bar -->
+    <form action="/" id="addPost">
+        <div>
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="titleInput" required>
+        </div>
+        <div>
+            <label for="content">Content:</label>
+
+            <textarea name="content" id="contentInput" cols="30" rows="10" required></textarea></div>
+        <div>
+            <label for="tag">Tag:</label>
+
+            <input type="text" name="tag" id="tagInput" placeholder="eg: 'music, cat, unicorn'" required>
+        </div>
+        <div>
+            <button type="submit">Post</button></div>
+        </div>
+    </form>
+</body>
+<script src="./src/js/navbar.js"></script>
+<script src="./src/js/addPost.js"></script>
+
+</html>
