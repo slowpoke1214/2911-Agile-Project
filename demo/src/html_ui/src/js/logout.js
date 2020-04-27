@@ -1,2 +1,2 @@
 sessionStorage.clear();
-window.location.replace($.url('').replace($.url('path'), ''))
+window.location.replace('./index.html');

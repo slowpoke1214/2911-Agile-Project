@@ -1,6 +1,6 @@
 // If login-ed redirect
 if (sessionStorage.getItem('jwt')) {
-    window.location.replace($.url('').replace($.url('path'), ''))
+    window.location.replace('./index.html');
 }
 
 // Clone and Remove Template Object
@@ -18,7 +18,7 @@ $('#loginUser').submit(function(event) {
         success: function(data) {
             // On success => store JSON web token, Redirect
             sessionStorage.setItem('jwt', data['token']);
-            window.location.replace($.url('').replace($.url('path'), ''))
+            window.location.replace('./index.html');
         },
         error: function(data) {
             console.log(data)
