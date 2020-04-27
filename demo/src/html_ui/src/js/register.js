@@ -1,6 +1,6 @@
 // If login-ed redirect
 if (sessionStorage.getItem('jwt')) {
-    window.location.replace($.url('').replace($.url('path'), ''))
+    window.location.replace('./index.html');
 }
 
 // Clone and Remove Template Object
@@ -25,7 +25,7 @@ $('#registerUser').submit(function(event) {
                 document.getElementById('registerUser').appendChild(messageBox);
             } else {
                 // No Error => Redirect
-                window.location.replace($.url('').replace($.url('path'), 'login.html'));
+                window.location.replace('./login.html');
             }
         },
         error: function(data) {

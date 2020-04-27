@@ -1,3 +1,6 @@
+if (!(sessionStorage.getItem('jwt'))) {
+    window.location.replace('./index.html');
+}
 
 $('#addPost').submit(function(event) {
     event.preventDefault();
@@ -24,7 +27,7 @@ $('#addPost').submit(function(event) {
             if (data["errorMessage"]) {
                 console.log(data["errorMessage"]);
             }
-            window.location.replace($.url('').replace($.url('path'), ''))
+            window.location.replace('./index.html');
         }
     });
 });
