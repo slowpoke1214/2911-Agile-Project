@@ -28,6 +28,7 @@ exports.AddPost = async function(req, res) {
         let response = await _postRepo.addPost(newPost);
 
         if (response.errorMessage == '') {
+            console.log(newPost)//------------------------
             res.json({
                 post: newPost,
                 errorMessage: ''
