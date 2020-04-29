@@ -1,6 +1,7 @@
 #General
 **/node_modules
 node_modules
+/src/technolot_node/node_modules
 .env
 
 #Logs
