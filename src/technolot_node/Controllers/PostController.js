@@ -3,6 +3,7 @@ const PostRepo = require('../Data/PostRepo');
 const _postRepo = new PostRepo();
 const Post = require('../Models/Post')
 
+
 exports.TestPost = async function(req, res) {
     let reqInfo = await RequestService.jwtReqHelper(req, []);
     if (reqInfo.authenticated) {
@@ -28,7 +29,6 @@ exports.AddPost = async function(req, res) {
         let response = await _postRepo.addPost(newPost);
 
         if (response.errorMessage == '') {
-            console.log(newPost)//------------------------
             res.json({
                 post: newPost,
                 errorMessage: ''
