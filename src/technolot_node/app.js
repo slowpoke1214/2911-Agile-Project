@@ -50,7 +50,7 @@ passport.deserializeUser(User.deserializeUser());
 
 require('./router')(app);
 app.set('port', 1337);
-app.use(express.static(path.join(__dirname, 'static')));
+app.use(express.static(path.join(__dirname, '../html_ui')));
 
 http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
