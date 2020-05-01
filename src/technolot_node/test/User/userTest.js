@@ -21,8 +21,4 @@ describe('Users', function() {
 
     });
 
-    it('should test user Login', function () {
-
-    });
-
 });
