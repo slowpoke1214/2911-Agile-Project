@@ -3,21 +3,24 @@ const CommentRepo = require('../Data/CommentRepo');
 const _commentRepo = new CommentRepo();
 const Comment = require('../Models/Comment')
 
+
+
 exports.GetComments = async function(req, res) {
     let comments = await _commentRepo.getComments()
-    console.log('comments',comments)//------------------
-    res.json(comments)//'/post/view?_id='+ req.params.id,
+    let id  =  req.query._id
+    console.log('comments',comments,"id",id)//------------------
+    res.json({comments:comments,id:id})
 }
-
 
 exports.AddComment = async function(req, res) {
     let reqInfo = await RequestService.jwtReqHelper(req, [])
+    let time = new Date()
     if (reqInfo.authenticated) {
         let newComment = new Comment({
             title: req.body.title,
             content: req.body.content,
             username: reqInfo.username,
-            tag: req.body.tag
+            time: req.body.time,
         })
 
         let response = await _commentRepo.addComment(newComment);

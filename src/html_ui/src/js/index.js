@@ -19,7 +19,8 @@ $(function() {
                     tags.appendChild(newtag);
                 })
                 tag.remove();
-                newPost.href = "/post/view?_id=" + element["_id"];
+                newPost.href = "replyPost.html";
+                // newPost.href = "/post/view?_id=" + element["_id"];
                 newPost.getElementsByTagName('h3')[0].innerText = element["title"];
                 newPost.getElementsByTagName('p')[0].innerText = element["content"];
                 newPost.getElementsByTagName('small')[0].innerText = element["username"];
