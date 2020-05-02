@@ -6,7 +6,6 @@ if (!(sessionStorage.getItem('jwt'))) {
     p.innerText="You can login to reply to this Post!!!"
     formTag.style.display="none";
     wrapper.insertBefore(p,commentArea)
-
 }
 
 $(function() {
@@ -14,14 +13,13 @@ $(function() {
     let postObj = postNode.cloneNode(true);
     postNode.remove()
     let id = new URL(location.href).searchParams.get('_id')
-    console.log("7",id)//---------------------------
     $.ajax({
         url: 'http://127.0.0.1:1337/post/view?_id='+id,
         method: 'get',
         success: function(data) {
             console.log(data);
             let element = data.post
-            // data["post"].forEach(element => {
+
             let postlot = document.getElementById('postlot');
             let newPost = postObj.cloneNode(true);
             let tags = newPost.getElementsByClassName('tags')[0];
@@ -29,15 +27,21 @@ $(function() {
             element['tag'].forEach(value => {
                 let newtag = tag.cloneNode(true);
                 newtag.innerText = value;
-                tags.appendChild(newtag);
+                //make tags clickable, wrap newtag with <a> tag
+                let aTag = document.createElement("a")
+                aTag.href = "relatedPost.html"+"?tag=" + value;
+                aTag.appendChild(newtag)
+
+                tags.appendChild(aTag);
+
+
             })
             tag.remove();
-            // newPost.href = "/post/view?_id=" + element["_id"];
             newPost.getElementsByTagName('h3')[0].innerText = element["title"];
             newPost.getElementsByTagName('p')[0].innerText = element["content"];
             newPost.getElementsByTagName('small')[0].innerText = element["username"];
             postlot.appendChild(newPost)
-            // });
+
             data.comments.forEach(element => {
                 let commentArea = document.getElementById("commentArea");
                 let block = document.createElement("div")

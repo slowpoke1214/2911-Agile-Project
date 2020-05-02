@@ -8,6 +8,11 @@ class PostRepo {
         return posts;
     }
 
+    async getRelatedPosts(tag){
+        var posts = await Post.find({tag:tag}).exec()
+        return posts
+    }
+
     async getOnePost(id) {
         var post = await Post.findOne({_id:id})
         return post;

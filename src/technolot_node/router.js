@@ -12,5 +12,6 @@ module.exports = function(app) {
     app.post('/post/addPost', cors(), authMiddleware.requireJWT, PostController.AddPost);
     app.get('/post/view',cors(), CommentController.GetComments);
     app.post('/post/view',cors(),authMiddleware.requireJWT, CommentController.AddComment);
+    app.get("/post/tag",cors(),PostController.GetRelatedPosts)
 }
 

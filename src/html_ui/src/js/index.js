@@ -16,7 +16,12 @@ $(function() {
                 element['tag'].forEach(value => {
                     let newtag = tag.cloneNode(true);
                     newtag.innerText = value;
-                    tags.appendChild(newtag);
+                    //make tags clickable, wrap newtag with <a> tag
+                    let aTag = document.createElement("a")
+                    aTag.href = "relatedPost.html"+"?tag=" + value;
+                    aTag.appendChild(newtag)
+
+                    tags.appendChild(aTag);
                 })
                 tag.remove();
                 newPost.href = "replyPost.html" + "?_id=" + element["_id"];
