@@ -2,14 +2,18 @@ const RequestService = require('../Services/RequestService');
 const CommentRepo = require('../Data/CommentRepo');
 const _commentRepo = new CommentRepo();
 const Comment = require('../Models/Comment')
-
+const PostRepo = require('../Data/PostRepo');
+const _postRepo = new PostRepo();
+const Post = require('../Models/Post')
 
 
 exports.GetComments = async function(req, res) {
-    let comments = await _commentRepo.getComments()
     let id  =  req.query._id
-    console.log('comments',comments,"id",id)//------------------
-    res.json({comments:comments,id:id})
+    let post= await _postRepo.getOnePost(id)
+    let comments = await _commentRepo.getComments(post.title)
+
+    console.log('comments',comments,"post",post)//------------------
+    res.json({comments:comments,post:post})
 }
 
 exports.AddComment = async function(req, res) {

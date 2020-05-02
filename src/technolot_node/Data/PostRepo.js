@@ -8,6 +8,11 @@ class PostRepo {
         return posts;
     }
 
+    async getOnePost(id) {
+        var post = await Post.findOne({_id:id})
+        return post;
+    }
+
     async addPost(post) {
         try {
             var error = await post.validateSync();

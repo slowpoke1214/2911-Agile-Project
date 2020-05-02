@@ -3,8 +3,8 @@ const Comment = require('../Models/Comment');
 class CommentRepo {
     CommentRepo() { }
 
-    async getComments() {
-        var comments = await Comment.find().exec()
+    async getComments(title) {
+        var comments = await Comment.find({title:title}).exec()
         return comments;
     }
 
