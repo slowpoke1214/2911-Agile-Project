@@ -3,6 +3,13 @@ const PostRepo = require('../Data/PostRepo');
 const _postRepo = new PostRepo();
 const Post = require('../Models/Post')
 
+
+exports.GetRelatedPosts = async function(req,res){
+    let tag = req.query.tag;
+    let posts = await _postRepo.getRelatedPosts(tag);
+    res.json(posts)
+}
+
 exports.TestPost = async function(req, res) {
     let reqInfo = await RequestService.jwtReqHelper(req, []);
     if (reqInfo.authenticated) {
