@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+    
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"
         integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <script src="src/js/jquery-url.min.js"></script>
-    <link rel="stylesheet" href="src/css/main.css">
-    <link rel="stylesheet" href="src/css/index.css">
+        <script src="src/js/jquery-url.min.js"></script>
+        <link rel="stylesheet" href="src/css/main.css">
+        <link rel="stylesheet" href="src/css/index.css">
     <link rel="stylesheet" href="src/css/comment.css">
     <title>Technolot | a Parking lot for ideas</title>
 </head>
@@ -31,27 +31,24 @@
             <!-- Individual Post Template -->
             <div class="post" href="/">
                 <div>
-                    <h3 id="title">Title</h3>
-                    <small>Username</small>
+                    <h3 id="title"></h3>
+                    <small></small>
                     <div class="tags">
-                        <small>tag1</small>
+                        <small></small>
                     </div>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, ipsum?</p>
+                    <p></p>
                 </div>
             </div>
             <!-- End of Individual Post -->
         </div>
+        
         <form action="/post/view" method='post' id="addComment">
-            <!-- <p style="display: none;">hahahaha</p> -->
-            <p>
-                <h3>Comments</h3>
-                <textarea rows="4" id="toReply" form="replyForm" placeholder="Enter text here..."></textarea>
-                <button type="submit">Submit</button>
-            </p>
+            <h3>Comments</h3>
+            <textarea rows="4" id="toReply" form="replyForm" placeholder="Enter text here..."></textarea>
+            <button type="submit">Submit</button>
         </form>
-        <div id="commentArea">
 
-        </div>
+        <div id="commentArea"></div>
         <!-- End of Posts Area -->
     </div>
 </body>

@@ -1,3 +1,13 @@
+if (!(sessionStorage.getItem('jwt'))) {
+    let wrapper = document.getElementById("wrapper");
+    let formTag = document.getElementById("addComment");
+    let commentArea = document.getElementById("commentArea");
+    let p = document.createElement("p")
+    p.innerText="You can login to reply to this Post!!!"
+    formTag.style.display="none";
+    wrapper.insertBefore(p,commentArea)
+
+}
 
 $(function() {
     let postNode = document.getElementsByClassName('post')[0];
@@ -46,9 +56,6 @@ $(function() {
     }) 
 });
 
-if (!(sessionStorage.getItem('jwt'))) {
-    window.location.replace('./index.html');
-}
 
 console.log(new URL(location.href).searchParams.get('_id'))
 
