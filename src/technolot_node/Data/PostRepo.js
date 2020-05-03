@@ -3,6 +3,17 @@ const Post = require('../Models/Post');
 class PostRepo {
     PostRepo() { }
 
+    async delPost(id){
+        console.log("id",id)
+        var status = await Post.deleteOne({_id:id})
+        return status
+    }
+
+    async getMyPosts(name){
+        let posts = await Post.find({username:name}).exec()
+        return posts;
+    }
+
     async getPosts() {
         var posts = await Post.find().exec()
         return posts;

@@ -3,8 +3,19 @@ const Comment = require('../Models/Comment');
 class CommentRepo {
     CommentRepo() { }
 
+    async delComment(id){
+        console.log("id",id)
+        var status = await Comment.deleteOne({_id:id})
+        return status
+    }
+
     async getComments(title) {
         var comments = await Comment.find({title:title}).exec()
+        return comments;
+    }
+
+    async getMyComments(name){
+        var comments = await Comment.find({username:name}).exec()
         return comments;
     }
 

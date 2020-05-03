@@ -5,4 +5,5 @@ if (sessionStorage.getItem('jwt')) {
 } else {
     document.getElementById('navItemLogout').remove();
     document.getElementById('navItemAddPost').remove();
+    document.getElementById('navItemMyPage').remove();
 }
