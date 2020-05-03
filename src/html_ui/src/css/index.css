@@ -27,9 +27,20 @@
 .post:hover>div {
     box-shadow: 0 0.5rem 3rem #CCC;
     border-radius: 1rem;
-    transform: translateY(-0.25rem) scale(1.1);
+    transform: translateY(-0.25rem) scale(1.075);
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
     z-index: 999;
+}
+
+.post:hover > div > .tag > a {
+    color: white;
+}
+
+@media only screen and (max-width: 768px) {
+    .post:hover>div {
+        border-radius: 6px;
+        transform: translateY(-0.25rem) scale(1.025);
+    }
 }
 
 .post>div::after {
