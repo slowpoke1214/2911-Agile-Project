@@ -1,35 +1,37 @@
+$( () => {
 
-$(function() {
-    let postNode = document.getElementsByClassName('post')[0];
-    let postObj = postNode.cloneNode(true);
-    postNode.remove()
+    let postlot = document.getElementById('postlot');
+
     $.ajax({
         url: 'http://127.0.0.1:1337/post/allPosts',
         method: 'get',
-        success: function(data) {
-            console.log(data);
-            data.forEach(element => {
-                let postlot = document.getElementById('postlot');
-                let newPost = postObj.cloneNode(true);
-                let tags = newPost.getElementsByClassName('tags')[0];
-                let tag = tags.getElementsByTagName('small')[0];
-                element['tag'].forEach(value => {
-                    let newtag = tag.cloneNode(true);
-                    newtag.innerText = value;
-                    //make tags clickable, wrap newtag with <a> tag
-                    let aTag = document.createElement("a")
-                    aTag.href = "relatedPost.html"+"?tag=" + value;
-                    aTag.appendChild(newtag)
-
-                    tags.appendChild(aTag);
+        success: (result) => {
+            result.forEach( data => {
+                let post = document.createElement("a");
+                    post.className = "post";
+                    post.href = "replyPost.html?_id=" + data._id;
+                let postFrame = document.createElement('div');
+                let postTitle = document.createElement('h3');
+                    postTitle.innerText = data.title;
+                let postAuthor = document.createElement('small');
+                    postAuthor.innerText = data.username;
+                let postTags = document.createElement('div')
+                    postTags.className = "tags";
+                let postContent = document.createElement('p');
+                    postContent.innerText = data.content;
+            
+                data.tag.forEach( tag => {
+                    let postTag = document.createElement('a');
+                        postTag.innerText = tag;
+                        postTag.href = "relatedPost.html?tag=" + tag;
+                    postTags.append(postTag);
                 })
-                tag.remove();
-                newPost.href = "replyPost.html" + "?_id=" + element["_id"];
-                newPost.getElementsByTagName('h3')[0].innerText = element["title"];
-                newPost.getElementsByTagName('p')[0].innerText = element["content"];
-                newPost.getElementsByTagName('small')[0].innerText = element["username"];
-                postlot.appendChild(newPost)
-            });
+                    
+                postlot.append(post);
+                post.append(postFrame);
+                postFrame.append(postTitle, postAuthor, postTags, postContent);
+            })
         }
     })
-});
+    
+})

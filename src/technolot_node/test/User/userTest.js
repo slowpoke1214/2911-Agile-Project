@@ -9,6 +9,16 @@ var assert = require('chai').assert;
 var expect = require('chai').expect;
 var should = require('chai').should();
 
+const chaiHttp = require('chai-http');
+const chai = require('chai');
+const app = require('../../app.js')
+
+//Configuration of Chai
+chai.use(chaiHttp);
+chai.should();
+const UserController = require('../../Controllers/UserController');
+
+
 
 describe('Users', function() {
 
