@@ -3,6 +3,28 @@ const PostRepo = require('../Data/PostRepo');
 const _postRepo = new PostRepo();
 const Post = require('../Models/Post')
 
+
+exports.DelPost = async function(req,res){
+    let reqInfo = await RequestService.jwtReqHelper(req, []);
+    if (reqInfo.authenticated) {
+        let id = req.query._id;
+        let status = await _postRepo.delPost(id);
+        res.json({status:status, errorMessage:""});
+    }else{
+        res.json({errorMessage:"Not authenticated!"})
+    }
+}
+
+exports.GetUserInfo = async function(req,res){
+    res.json({user:req.user})
+}
+
+exports.GetRelatedPosts = async function(req,res){
+    let tag = req.query.tag;
+    let posts = await _postRepo.getRelatedPosts(tag);
+    res.json(posts)
+}
+
 exports.TestPost = async function(req, res) {
     let reqInfo = await RequestService.jwtReqHelper(req, []);
     if (reqInfo.authenticated) {

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+    
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"
         integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    <script src="src/js/jquery-url.min.js"></script>
-    <link rel="stylesheet" href="src/css/main.css">
-    <link rel="stylesheet" href="src/css/index.css">
+        <script src="src/js/jquery-url.min.js"></script>
+        <link rel="stylesheet" href="src/css/main.css">
+        <link rel="stylesheet" href="src/css/index.css">
     <title>Technolot | a Parking lot for ideas</title>
 </head>
 
@@ -26,7 +26,10 @@
     </nav>
     <!-- End of nav bar -->
     <div id="wrapper">
-        <!-- Posts Area -->
+        <div id="searchArea">
+            <input type="text" name="searchBar">
+            <input type="button" value="Enter" name="submit">
+        </div>
         <div id="postlot">
             <!-- Individual Post Template -->
             <a class="post" href="/">
@@ -41,9 +44,8 @@
             </a>
             <!-- End of Individual Post -->
         </div>
-        <!-- End of Posts Area -->
     </div>
 </body>
 <script src="src/js/navbar.js"></script>
-<script src="src/js/index.js"></script>
+<script src="src/js/relatedPost.js"></script>
 </html>
