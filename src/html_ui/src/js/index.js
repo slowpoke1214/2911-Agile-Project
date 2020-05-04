@@ -8,7 +8,7 @@ $( () => {
         success: (result) => {
             result.forEach( data => {
                 let post = document.createElement("a");
-                    post.className = "post";
+                    post.className = "post fade-in";
                     post.href = "replyPost.html?_id=" + data._id;
                 let postFrame = document.createElement('div');
                 let postTitle = document.createElement('h3');
