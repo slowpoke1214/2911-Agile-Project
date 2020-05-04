@@ -25,13 +25,6 @@ exports.GetRelatedPosts = async function(req,res){
     res.json(posts)
 }
 
-exports.TestPost = async function(req, res) {
-    let reqInfo = await RequestService.jwtReqHelper(req, []);
-    if (reqInfo.authenticated) {
-        res.json({'message':'ok'});
-    }
-}
-
 exports.GetPosts = async function(req, res) {
     let posts = await _postRepo.getPosts()
     res.json(posts)

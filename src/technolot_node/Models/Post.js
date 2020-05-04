@@ -3,12 +3,15 @@ var mongoose = require('mongoose');
 var postSchema = mongoose.Schema({
     title: {
         type: String,
+        required: true
     },
     content: {
-        type: String
+        type: String,
+        required: true
     },
     username: {
-        type: String
+        type: String,
+        required: true
     },
     tag: {
         type: Array

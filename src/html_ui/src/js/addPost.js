@@ -26,8 +26,9 @@ $('#addPost').submit(function(event) {
             console.log(data)
             if (data["errorMessage"]) {
                 console.log(data["errorMessage"]);
+            } else {
+                window.location.replace('./index.html');
             }
-            window.location.replace('./index.html');
         }
     });
 });

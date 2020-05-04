@@ -20,22 +20,19 @@ const app = require('../../app.js');
 chai.use(chaiHttp);
 chai.should();
 
+const UserController = require('../../Controllers/UserController');
 
-// describe('Users', function() {
-//
-//     describe('Registration', function() {
-//
-//         it('should test correct input', function () {
-//
-//         });
-//
-//         it('should test incorrect password confirmation', function () {
-//
-//         });
-//
-//         it('should test duplicated username', function () {
-//
-//         });
-//     });
-//
-// });
+
+
+describe('Users', function() {
+
+    it('should add two numbers', function () {
+        //This is just a demo of the unit testing for Mocha and Chai
+        expect(1 + 3).to.equal(4);
+    });
+
+    it('should test user Registration', function () {
+
+    });
+
+});

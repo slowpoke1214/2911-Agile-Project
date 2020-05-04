@@ -9,8 +9,8 @@ class CommentRepo {
         return status
     }
 
-    async getComments(title) {
-        var comments = await Comment.find({title:title}).exec()
+    async getComments(id) {
+        var comments = await Comment.find({id:id}).exec()
         return comments;
     }
 
