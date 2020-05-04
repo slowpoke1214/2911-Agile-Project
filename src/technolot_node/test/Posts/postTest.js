@@ -21,7 +21,6 @@ chai.use(chaiHttp);
 chai.should();
 
 
-
 describe('Posts', function() {
     var jwt = '';
     var username = 'joek';
@@ -42,7 +41,7 @@ describe('Posts', function() {
         //Tests to ensure correct content is received.
         expect(res.body.post.title).to.equal('Test Title');
         expect(res.body.post.content).to.equal('Test Content');
-        assert.include(res.body.post.tag, 'Test Tag', 'nice');
+        assert.include(res.body.post.tag, 'Test Tag');
 
         //Tests to ensure no error message occurs.
         expect(res.body.errorMessage).to.equal('')
