@@ -20,12 +20,15 @@ exports.GetMyPage = async function(req,res){
 }
 
 exports.GetComments = async function(req, res) {
-    let id  =  req.query._id
-    let post= await _postRepo.getOnePost(id)
-    let comments = await _commentRepo.getComments(post.title)
+    let id  =  req.query._id;
+    let post = await _postRepo.getOnePost(id);
+    let comments = await _commentRepo.getComments(id);
 
-    console.log('comments',comments,"post",post)//------------------
-    res.json({comments:comments,post:post})
+    console.log('comments',comments,"post",post);//------------------
+    res.json({
+        comments:comments,
+        post:post
+    });
 }
 
 exports.AddComment = async function(req, res) {
@@ -33,7 +36,7 @@ exports.AddComment = async function(req, res) {
     let time = new Date()
     if (reqInfo.authenticated) {
         let newComment = new Comment({
-            title: req.body.title,
+            id: req.body.id,
             content: req.body.content,
             username: reqInfo.username,
             time: req.body.time,

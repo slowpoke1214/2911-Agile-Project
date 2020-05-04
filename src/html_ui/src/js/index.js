@@ -27,7 +27,7 @@ $( () => {
                     postTags.append(postTag);
                 })
                     
-                postlot.append(post);
+                postlot.prepend(post);
                 post.append(postFrame);
                 postFrame.append(postTitle, postAuthor, postTags, postContent);
             })

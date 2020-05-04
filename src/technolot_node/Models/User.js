@@ -7,13 +7,16 @@ var userSchema = mongoose.Schema({
         index: true
     },
     password: {
-        type: String
+        type: String,
+        required: true
     },
     email: {
-        type: String
+        type: String,
+        required: true
     },
     roles: {
-        type: Array
+        type: Array,
+        required: true
     }
 });
 
