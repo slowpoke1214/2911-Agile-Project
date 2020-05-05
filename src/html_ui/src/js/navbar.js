@@ -2,19 +2,20 @@
 
 //create input element
 let input = document.createElement("input");
-input.type = "text";
-input.placeholder = "search here...";
+    input.id = "searchInput";
+    input.type = "text";
+    input.placeholder = "Search Here...";
 //create button element
 let button = document.createElement("button");
-button.innerText = "search";
+    button.innerText = "🔍";
 //put input and button elements into a div element
-let li = document.createElement("li");
-li.id="searchBar";
-li.appendChild(input);
-li.appendChild(button);
-//put li element into nav column, right after login/logout element
+let searchForm = document.createElement("form");
+    searchForm.id="searchBar";
+    searchForm.appendChild(input);
+    searchForm.appendChild(button);
+//put form element into nav column, right after login/logout element
 let login = document.getElementById('navItemLogin');
-login.parentElement.appendChild(li)
+login.parentElement.appendChild(searchForm)
 
 
 
@@ -27,3 +28,8 @@ if (sessionStorage.getItem('jwt')) {
     document.getElementById('navItemAddPost').remove();
     document.getElementById('navItemMyPage').remove();
 }
+
+$('#searchBar').submit( function(event) {
+    event.preventDefault();
+    window.location.replace('.//relatedPost.html?tag=' + input.value);
+})
