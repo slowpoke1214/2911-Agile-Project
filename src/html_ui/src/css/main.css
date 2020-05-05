@@ -112,6 +112,11 @@ button:hover {
     background: inherit;
 }
 
+#searchBar > button {
+    display: inline;
+    width: auto;
+}
+
 @keyframes fade-in{
     from {
         opacity: 0;
