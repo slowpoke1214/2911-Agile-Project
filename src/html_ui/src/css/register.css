@@ -37,7 +37,7 @@ form > div > input, form > div > textarea {
 button {
     display: block;
     width: 5rem;
-    margin: auto;
+    margin: 0.5rem auto;
 }
 
 #errorMessage {

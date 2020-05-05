@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
-
-var postSchema = mongoose.Schema({
-    title: {
+var Schema = mongoose.Schema;
+var commentSchema = new Schema({
+    id: {
         type: String,
         required: true
     },
@@ -13,10 +13,11 @@ var postSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    tag: {
-        type: Array
+    time: {
+        type: Date,
+        required: true
     }
 });
 
-var Post = mongoose.model('Post', postSchema);
-module.exports = Post;
+var Comment = mongoose.model('Comment', commentSchema);
+module.exports = Comment;

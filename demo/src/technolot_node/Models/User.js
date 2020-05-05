@@ -7,19 +7,17 @@ var userSchema = mongoose.Schema({
         index: true
     },
     password: {
-        type: String,
-        required: true
+        type: String
     },
     email: {
-        type: String,
-        required: true
+        type: String
     },
     roles: {
-        type: Array,
-        required: true
+        type: Array
     }
 });
 
 userSchema.plugin(passportLocalMongoose);
 var User = mongoose.model('User', userSchema);
 module.exports = User;
+

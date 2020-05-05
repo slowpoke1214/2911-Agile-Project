@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+    
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"
         integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     <script src="src/js/jquery-url.min.js"></script>
     <link rel="stylesheet" href="src/css/main.css">
-    <link rel="stylesheet" href="src/css/index.css">
+    <link rel="stylesheet" href="src/css/replyPost.css">
     <title>Technolot | a Parking lot for ideas</title>
 </head>
 
@@ -26,24 +26,28 @@
     </nav>
     <!-- End of nav bar -->
     <div id="wrapper">
-        <!-- Posts Area -->
-        <div id="postlot">
             <!-- Individual Post Template -->
-            <!-- <a class="post">
-                <div>
-                    <h3>Title</h3>
-                    <small>Username</small>
-                    <a class="tags">
-                        <a href="/">tag1</a>
-                    </a>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed, ipsum?</p>
-                </div>
-            </a> -->
+            <!-- <div class="post fade-in" href="/">
+                    <h3 id="title"></h3>
+                    <small></small>
+                    <div class="tags">
+                    </div>
+                    <p></p>
+            </div> -->
             <!-- End of Individual Post -->
-        </div>
+            
+        <!-- Comment Form HTML Reference
+        <form action="/" method='' id="addComment" class="fade-in">
+            <h3>Comments</h3>
+            <textarea rows="4" id="toReply" placeholder="Enter text here..." required></textarea>
+            <button type="submit">Submit</button>
+        </form> 
+        -->
+
+        <div id="commentArea"></div>
         <!-- End of Posts Area -->
     </div>
 </body>
 <script src="src/js/navbar.js"></script>
-<script src="src/js/index.js"></script>
+<script src="src/js/replyPost.js"></script>
 </html>
