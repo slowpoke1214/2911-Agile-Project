@@ -87,6 +87,35 @@ button:hover {
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
 }
 
+#searchInput {
+    background: none;
+    color: whitesmoke;
+    border: none;
+    border-bottom: 2px solid white;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0.5rem;
+}
+
+#searchInput::placeholder {
+    color: whitesmoke;
+    opacity: 1;
+}
+
+#searchBar {
+    display: inline;
+    padding: 0;
+}
+
+#searchBar:hover {
+    background: inherit;
+}
+
+#searchBar > button {
+    display: inline;
+    width: auto;
+}
 
 @keyframes fade-in{
     from {
