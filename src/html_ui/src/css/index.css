@@ -24,7 +24,7 @@
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
 }
 
-.post:hover>div {
+.post:hover>div, .post:focus>div {
     box-shadow: 0 0.5rem 3rem #CCC;
     border-radius: 6px;
     transform: translateY(-0.25rem) scale(1.025);
@@ -32,7 +32,7 @@
     z-index: 999;
 }
 
-.post:hover > div > .tag > a {
+.post:hover > div > .tag > a, .post:focus > div > .tag > a {
     color: white;
 }
 
@@ -86,7 +86,7 @@
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
 }
 
-.tags > a:hover {
+.tags > a:hover, .tags > a:focus {
     background: LIMEGREEN;
     box-shadow: 0 0.15rem 0.5rem mediumseagreen;
     transform: translateY(-0.15rem);
