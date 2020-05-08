@@ -5,17 +5,22 @@ let input = document.createElement("input");
     input.id = "searchInput";
     input.type = "text";
     input.placeholder = "Search Here...";
+//create span for underline
+let underline = document.createElement('span');
 //create button element
 let button = document.createElement("button");
-    button.innerText = "🔍";
+//create <i> for fontawsome icon
+let icon = document.createElement('i');
+    icon.className = "fas fa-search fade-in";
+button.append(icon);
 //put input and button elements into a div element
 let searchForm = document.createElement("form");
-    searchForm.id="searchBar";
-    searchForm.appendChild(input);
-    searchForm.appendChild(button);
+    searchForm.id = "searchBar";
+    searchForm.className = "fade-in";
+    searchForm.append(input, underline, button);
 //put form element into nav column, right after login/logout element
 let login = document.getElementById('navItemLogin');
-login.parentElement.appendChild(searchForm)
+login.parentElement.append(searchForm)
 
 
 
@@ -31,5 +36,5 @@ if (sessionStorage.getItem('jwt')) {
 
 $('#searchBar').submit( function(event) {
     event.preventDefault();
-    window.location.replace('.//relatedPost.html?tag=' + input.value);
+    window.location.href = './relatedPost.html?tag=' + input.value;
 })

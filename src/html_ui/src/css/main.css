@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Ubuntu:wght@500&display=swap');
 
-
 html {
     background: whitesmoke;
 }
@@ -16,6 +15,7 @@ nav {
 }
 
 ul {
+    position: relative;
     max-width: 1280px;
     margin: 0 auto 0.5rem auto;
     padding: 0;
@@ -80,7 +80,7 @@ button {
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
 }
 
-button:hover {
+button:hover, button:focus {
     background: LIMEGREEN;
     box-shadow: 0 0.15rem 0.5rem mediumseagreen;
     transform: translateY(-0.15rem);
@@ -91,11 +91,26 @@ button:hover {
     background: none;
     color: whitesmoke;
     border: none;
-    border-bottom: 2px solid white;
     box-shadow: none;
     border-radius: 0;
     margin: 0;
     padding: 0.5rem;
+}
+
+#searchInput + span {
+    position: absolute;
+    background: white;
+    width: 0;
+    height: 2px;
+    bottom: 0.5rem;
+    left: 0;
+    cursor: none;
+    transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
+}
+
+#searchInput:hover + span, #searchInput:focus + span {
+    width: 100%;
+    transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
 }
 
 #searchInput::placeholder {
@@ -105,7 +120,14 @@ button:hover {
 
 #searchBar {
     display: inline;
-    padding: 0;
+    position: relative;
+    padding: 0.75rem 0 0.25rem 0;
+    margin: 0 0.75rem;
+    width: auto;
+    height: 2.2rem;
+    float: right;
+    background: none;
+    box-sizing: content-box;
 }
 
 #searchBar:hover {
@@ -113,8 +135,17 @@ button:hover {
 }
 
 #searchBar > button {
+    position: absolute;
+    right: 0;
+    top: 1.25rem;
+    background: none;
+    box-shadow: none;
     display: inline;
     width: auto;
+    border-radius: 0;
+    float: none;
+    padding: 0;
+    margin: 0;
 }
 
 @keyframes fade-in{
