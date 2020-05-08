@@ -141,7 +141,6 @@ $(function() {
                     postlot.innerHTML = html
 
                 }
-                // }
         
             })
             
