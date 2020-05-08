@@ -3,8 +3,14 @@ const Post = require('../Models/Post');
 class PostRepo {
     PostRepo() { }
 
+    async getSearchPosts(search){
+        let titles = await Post.find({title:{$regex: search, $options: "$i"}}).exec()
+        let contents = await Post.find({content:{$regex: search, $options: "$i"}}).exec()
+        let tags = await Post.find({tag:{$regex: search, $options: "$i"}}).exec()
+        return {titles,contents,tags};
+    }
+
     async delPost(id){
-        console.log("id",id)
         var status = await Post.deleteOne({_id:id})
         return status
     }
