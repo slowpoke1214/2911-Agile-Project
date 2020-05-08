@@ -4,6 +4,12 @@ const _postRepo = new PostRepo();
 const Post = require('../Models/Post')
 
 
+exports.GetSearchPosts = async function(req, res){
+    let search = req.query.search
+    let posts = await _postRepo.getSearchPosts(search);
+    res.json(posts)
+}
+
 exports.DelPost = async function(req,res){
     let reqInfo = await RequestService.jwtReqHelper(req, []);
     if (reqInfo.authenticated) {
