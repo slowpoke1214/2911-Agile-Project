@@ -21,7 +21,7 @@ chai.use(chaiHttp);
 chai.should();
 
 
-describe('Posts', function() {
+describe('Comments', function() {
     var jwt = '';
     var username = 'joek';
     var password = '123';
@@ -32,27 +32,11 @@ describe('Posts', function() {
         jwt = res.body.token;
     });
 
-    it('/POST', async () => {
-        const res = await chai.request(app).post('/post/addPost')
-            .set('Content-Type', 'application/json; charset=utf-8')
-            .set('Authorization', 'Bearer ' + jwt)
-            .send({'title': 'Test Title', 'content': 'Test Content', 'tag': 'Test Tag'});
-
-        //Tests to ensure correct content is received.
-        expect(res.body.post.title).to.equal('Test Title');
-        expect(res.body.post.content).to.equal('Test Content');
-        assert.include(res.body.post.tag, 'Test Tag');
-
-        //Tests to ensure no error message occurs.
-        expect(res.body.errorMessage).to.equal('')
-    });
-
-    it('/GET', async () => {
+    it('/GET My Page', async () => {
         const res = await chai.request(app)
-            .get('/post/allPosts');
-        let posts = res.body;
-        let filteredResult = posts.filter(post => post.title == "Test Title");
-        expect(filteredResult.length > 0).to.be.true;
+            .get('/myPage')
+            .set('Authorization', 'Bearer ' + jwt);
+        expect(res).to.have.status(200);
     });
 
     after( async () => {
