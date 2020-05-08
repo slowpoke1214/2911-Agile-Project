@@ -26,7 +26,7 @@ describe('Posts', function() {
     var username = 'joek';
     var password = '123';
 
-    beforeEach( async () => {
+    before( async () => {
         res = await chai.request(app).post('/login')
             .send({'username': username, 'password': password});
         jwt = res.body.token;
@@ -55,7 +55,7 @@ describe('Posts', function() {
         expect(filteredResult.length > 0).to.be.true;
     });
 
-    afterEach( async () => {
+    after( async () => {
         //Delete the posted item from database
     })
 
