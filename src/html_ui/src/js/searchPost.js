@@ -64,14 +64,7 @@ $(function() {
                 </a>
                 `
                 
-                // str_html += "<a class='post' href='replyPost.html?_id=" + element["_id"] +"'><h3>"+element["title"]+"</h3>" + "<small>"+element["username"]+"</small>" + "<span class='tags'>"
-                // if (typeof(element["tag"]) !== "string"){
-                //         element["tag"].forEach(e => {
-                //         str_html += "<a href='/'><samll>"+e+"</small></a>" 
-                //     })
-                // }
-                // str_html += "</span><p>" + element["content"] + "</p></a>"
-                
+
             })
             console.log(html)
             let postlot = document.getElementById("postlot");
