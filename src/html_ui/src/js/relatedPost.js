@@ -1,7 +1,8 @@
 $(function() {
-    let postNode = document.getElementsByClassName('post')[0];
-    let postObj = postNode.cloneNode(true);
-    postNode.remove()
+    // let postNode = document.getElementsByClassName('post')[0];
+    // let postObj = postNode.cloneNode(true);
+    // postNode.remove()
+    let postlot = document.getElementById('postlot');
     let tag = new URL(location.href).searchParams.get('tag')
 
     $.ajax({
@@ -11,26 +12,44 @@ $(function() {
             console.log(data);
 
             data.forEach(element => {
-            let postlot = document.getElementById('postlot');
-            let newPost = postObj.cloneNode(true);
-            let tags = newPost.getElementsByClassName('tags')[0];
-            let tag = tags.getElementsByTagName('small')[0];
+                
+                let div  = document.createElement("div");
+                
+                let title  = document.createElement("h3");
+                div.appendChild(title);
+                
+                let username  = document.createElement("small");
+                div.appendChild(username);
+                
+                let tags = document.createElement("div")
+                tags.className = "tags";
+                div.appendChild(tags);
+                
+                let content = document.createElement("p");
+                div.appendChild(content);
+                
+                
+                let a  = document.createElement("a");
+                a.className = "post";
+                a.appendChild(div)
+                
+
             element['tag'].forEach(value => {
-                let newtag = tag.cloneNode(true);
-                newtag.innerText = value;
-                //make tags clickable, wrap newtag with <a> tag
+                let tag = document.createElement("small");
+                tag.innerText = value;
+                //make tags clickable, wrap tag with <a> tag
                 let aTag = document.createElement("a")
                 aTag.href = "relatedPost.html"+"?tag=" + value;
-                aTag.appendChild(newtag)
+                aTag.appendChild(tag)
 
                 tags.appendChild(aTag);
             })
-            tag.remove();
-            newPost.href = "replyPost.html" + "?_id=" + element["_id"];
-            newPost.getElementsByTagName('h3')[0].innerText = element["title"];
-            newPost.getElementsByTagName('p')[0].innerText = element["content"];
-            newPost.getElementsByTagName('small')[0].innerText = element["username"];
-            postlot.appendChild(newPost)
+
+            a.href = "replyPost.html" + "?_id=" + element["_id"];
+            a.getElementsByTagName('h3')[0].innerText = element["title"];
+            a.getElementsByTagName('p')[0].innerText = element["content"];
+            a.getElementsByTagName('small')[0].innerText = element["username"];
+            postlot.appendChild(a)
 
             });
         }

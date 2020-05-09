@@ -36,5 +36,5 @@ if (sessionStorage.getItem('jwt')) {
 
 $('#searchBar').submit( function(event) {
     event.preventDefault();
-    window.location.href = './relatedPost.html?tag=' + input.value;
+    window.location.replace('./searchPost.html?search=' + input.value);
 })

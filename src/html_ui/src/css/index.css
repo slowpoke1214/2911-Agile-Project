@@ -9,7 +9,11 @@
     flex: 1 0 15rem;
 }
 
-.post>div {
+.post .postWrapper {
+    color: unset;
+}
+
+.post>div ,.post .postWrapper {
     background: white;
     position: relative;
     display: flex;
@@ -24,7 +28,7 @@
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
 }
 
-.post:hover>div, .post:focus>div {
+.post:hover>div,.post:hover>.postWrapper, .post:focus>div {
     box-shadow: 0 0.5rem 3rem #CCC;
     border-radius: 6px;
     transform: translateY(-0.25rem) scale(1.025);
@@ -32,11 +36,11 @@
     z-index: 999;
 }
 
-.post:hover > div > .tag > a, .post:focus > div > .tag > a {
+.post:hover > div > .tag > a, .post:hover > .postWrapper > .tag > a, .post:focus > div > .tag > a {
     color: white;
 }
 
-.post>div::after {
+.post>div::after,.post .postWrapper::after {
     content: '';
     display: block;
     position: absolute;
@@ -48,16 +52,28 @@
 }
 
 .post>div>h3,
-.post>div>small {
+.post>div>small, .post .postWrapper>h3, .post .postWrapper>small{
     flex: 0 0 auto;
     margin-bottom: 0.25rem;
 }
 
-.post>div>p {
+.post>div>p, .post .postWrapper>p {
     color: #666;
     flex: 1 1 auto;
     margin-top: 0.5rem;
 }
+/* 
+.post .postWrapper>h3,
+.post .postWrapper>small {
+    flex: 0 0 auto;
+    margin-bottom: 0.25rem;
+}
+
+.post .postWrapper>p {
+    color: #666;
+    flex: 1 1 auto;
+    margin-top: 0.5rem;
+} */
 
 #wrapper {
     max-width: 1280px;
@@ -74,7 +90,7 @@
     margin: 0.5rem 0;
 }
 
-.tags > a  {
+.tags  a  {
     display: block;
     background: mediumseagreen;
     box-shadow: 0 0 0 mediumseagreen;
@@ -86,7 +102,7 @@
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
 }
 
-.tags > a:hover, .tags > a:focus {
+.tags  a:hover,.tags > a:focus  {
     background: LIMEGREEN;
     box-shadow: 0 0.15rem 0.5rem mediumseagreen;
     transform: translateY(-0.15rem);

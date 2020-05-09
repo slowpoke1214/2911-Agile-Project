@@ -162,3 +162,7 @@ button:hover, button:focus {
 .fade-in {
     animation: fade-in 0.75s cubic-bezier(0.1, 0.8, 0.3, 0.9) normal;
 }
+
+span{
+    color:red;
+}

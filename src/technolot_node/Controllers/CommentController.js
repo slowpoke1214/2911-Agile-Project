@@ -6,6 +6,7 @@ const PostRepo = require('../Data/PostRepo');
 const _postRepo = new PostRepo();
 const Post = require('../Models/Post');
 
+
 exports.DelComment = async function(req,res){
     let id  =  req.query._id;
     let status = await _commentRepo.delComment(id);
