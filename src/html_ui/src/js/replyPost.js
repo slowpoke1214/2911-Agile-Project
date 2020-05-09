@@ -75,7 +75,6 @@ $(function() {
                     }),
                     dataType: 'json',
                     success: function(data) {
-                        alert('hi');
                         console.log(data)
                         if (data["errorMessage"]) {
                             console.log(data["errorMessage"]);
