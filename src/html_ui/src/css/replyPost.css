@@ -12,7 +12,7 @@
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
 }
 
-.bg-dk .post, #commentArea>div {
+.bg-dk .post, .bg-dk #commentArea>div {
     background: #26343D;
     box-shadow: 0 0.15rem 0.75rem #1B252B;
 }
