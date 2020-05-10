@@ -56,6 +56,7 @@ $(function() {
                 commentForm.append(formTitle, formContent, submitBtn);
             } else {
                 let loginMessage = document.createElement('h3');
+                    loginMessage.className = 'fade-in';
                     loginMessage.innerText = "To comment on this post, register and login."
                 wrapper.append(loginMessage);
             }

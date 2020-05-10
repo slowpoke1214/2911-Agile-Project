@@ -72,7 +72,7 @@ ul>li:nth-child(1) a {
 }
 
 .bg-dk ul>li:nth-child(1) a {
-    color: rgb(94, 206, 145);
+    color: #5ece91;
 
 }
 
@@ -284,7 +284,7 @@ span {
 }
 
 .bg-dk span {
-    color: 
+    color: #5ece91;
 }
 
 @keyframes fade-in{
