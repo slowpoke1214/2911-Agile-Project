@@ -32,15 +32,10 @@ describe('Comments', function() {
         jwt = res.body.token;
     });
 
-    it('/GET My Page', async () => {
+    it('/GET My Page', async function() {
         const res = await chai.request(app)
             .get('/myPage')
             .set('Authorization', 'Bearer ' + jwt);
         expect(res).to.have.status(200);
     });
-
-    after( async () => {
-        //Delete the posted item from database
-    })
-
 });

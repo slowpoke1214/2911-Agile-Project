@@ -11,6 +11,10 @@ class UserRepo {
             return []
         }
     }
+
+    async deleteUser(username) {
+        return await User.find({username: username}).deleteOne().exec();
+    }
 }
 
 module.exports = UserRepo;

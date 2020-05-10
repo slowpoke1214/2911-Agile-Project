@@ -1,4 +1,7 @@
+const RequestService = require('../Services/RequestService');
 const User = require('../Models/User');
+const UserRepo = require('../Data/UserRepo');
+const _userRepo = new UserRepo();
 var passport = require('passport');
 
 exports.RegisterUser = async function(req, res) {
@@ -33,5 +36,18 @@ exports.RegisterUser = async function(req, res) {
                 message: ""
             }
         })
+    }
+
+
+};
+
+exports.DeleteUser = async function(req, res) {
+    //For now the permitted Roles will be empty, until I figure out how to register a user
+    //in the unit tests with the Admin role.
+    let reqInfo = await RequestService.jwtReqHelper(req, []);
+    if (reqInfo) {
+        let username           = req.body.username;
+        let user  = await _userRepo.deleteUser(username);
+        res.json(user)
     }
 };

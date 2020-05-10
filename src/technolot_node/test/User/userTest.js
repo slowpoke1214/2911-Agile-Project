@@ -25,14 +25,33 @@ const UserController = require('../../Controllers/UserController');
 
 
 describe('Users', function() {
+    var jwt = '';
+    var username = 'UnitTest';
+    var email = 'UnitTesting@test.com';
+    var password = '123';
+    var passwordConfirm = '123';
 
-    it('should add two numbers', function () {
-        //This is just a demo of the unit testing for Mocha and Chai
-        expect(1 + 3).to.equal(4);
+    it('should register a new user', async function () {
+        const res = await chai.request(app).post('/registerUser')
+            .send({'username': username, 'email': email, 'password': password, 'passwordConfirm': passwordConfirm})
+
+        expect(res).to.have.status(200);
     });
 
-    it('should test user Registration', function () {
+    it('should Login to the newly created user.', async function () {
+        const res = await chai.request(app).post('/login')
+            .send({'username': username, 'password': password});
+        jwt = res.body.token;
 
+        expect(res).to.have.status(200);
     });
 
+    it('should delete the new user that was registered.', async function () {
+        const res = await chai.request(app).delete('/user/delete')
+            .set('Content-Type', 'application/json; charset=utf-8')
+            .set('Authorization', 'Bearer ' + jwt)
+            .send({'username': username});
+
+        expect(res).to.have.status(200);
+    });
 });

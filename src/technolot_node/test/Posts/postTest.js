@@ -25,14 +25,16 @@ describe('Posts', function() {
     var jwt = '';
     var username = 'joek';
     var password = '123';
+    var post_id = '';
 
-    before( async () => {
+    //Activates only once at the beginning of this "describe" block.
+    before('/POST "/login"', async function() {
         const res = await chai.request(app).post('/login')
             .send({'username': username, 'password': password});
         jwt = res.body.token;
     });
 
-    it('/POST', async () => {
+    it('/POST Creates a single Post.', async function() {
         const res = await chai.request(app).post('/post/addPost')
             .set('Content-Type', 'application/json; charset=utf-8')
             .set('Authorization', 'Bearer ' + jwt)
@@ -45,9 +47,13 @@ describe('Posts', function() {
 
         //Tests to ensure no error message occurs.
         expect(res.body.errorMessage).to.equal('')
+
+        //Saves the post ID for later deletion.
+        post_id = res.body.post._id;
+
     });
 
-    it('/GET', async () => {
+    it('/GET Gets all the Posts.', async function() {
         const res = await chai.request(app)
             .get('/post/allPosts');
         let posts = res.body;
@@ -55,8 +61,13 @@ describe('Posts', function() {
         expect(filteredResult.length > 0).to.be.true;
     });
 
-    after( async () => {
-        //Delete the posted item from database
-    })
+    it('/DELETE Deletion of created Post.', async function () {
+        const res = await chai.request(app).delete('/post/delete?_id='+post_id)
+            .set('Content-Type', 'application/json; charset=utf-8')
+            .set('Authorization', 'Bearer ' + jwt);
+
+        //Expects a successful deletion
+        expect(res).to.have.status(200);
+    });
 
 });
