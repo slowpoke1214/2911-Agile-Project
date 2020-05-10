@@ -22,6 +22,16 @@ let searchForm = document.createElement("form");
 let login = document.getElementById('navItemLogin');
 login.parentElement.append(searchForm)
 
+let darkmodeBtn = document.createElement('button');
+    darkmodeBtn.id = "darkmodeBtn";
+darkmodeBtn.onclick = () => {
+    if (sessionStorage.getItem('darkmode') == 'true') 
+        sessionStorage.setItem('darkmode', 'false')
+    else 
+        sessionStorage.setItem('darkmode', 'true')
+    updateTheme();
+}
+login.parentElement.append(darkmodeBtn);
 
 
 // Display Menu Item Based on login state
@@ -34,7 +44,17 @@ if (sessionStorage.getItem('jwt')) {
     document.getElementById('navItemMyPage').remove();
 }
 
+function updateTheme() {
+    if (sessionStorage.getItem('darkmode') == 'true') {
+        document.body.className = 'bg-dk';
+    } else {
+        document.body.className = '';
+    }
+}
+
 $('#searchBar').submit( function(event) {
     event.preventDefault();
     window.location.replace('./searchPost.html?search=' + input.value);
 })
+
+updateTheme();
