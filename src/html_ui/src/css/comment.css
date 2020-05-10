@@ -1,0 +1,15 @@
+h1, button {
+    margin-left: 1rem;
+}
+
+.post {
+    min-height: 15rem;
+}
+
+.delBtn {
+    display: block;
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0rem;
+    z-index: 99;
+}

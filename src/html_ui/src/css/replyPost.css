@@ -12,9 +12,9 @@
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
 }
 
-
-.post:hover > .tag > a {
-    color: white;
+.bg-dk .post, #commentArea>div {
+    background: #26343D;
+    box-shadow: 0 0.15rem 0.75rem #1B252B;
 }
 
 .post>h3,
@@ -23,10 +23,14 @@
     margin-bottom: 0.25rem;
 }
 
-.post>div>p {
+.post>p {
     color: #666;
     flex: 1 1 auto;
     margin-top: 0.5rem;
+}
+
+.bg-dk .post>p {
+    color: #6A8597;
 }
 
 #wrapper {
@@ -60,11 +64,21 @@
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
 }
 
+.bg-dk .tags > a {
+    background: #1B252B;
+    box-shadow: #1B252B;
+}
+
 .tags > a:hover, .tags > a:focus {
     background: LIMEGREEN;
     box-shadow: 0 0.15rem 0.5rem mediumseagreen;
     transform: translateY(-0.15rem);
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
+}
+
+.bg-dk .tags > a:hover, .bg-dk .tags > a:focus {
+    background: #0EA294;
+    box-shadow: 0 0.15rem 0.5rem #0EA294;
 }
 
 form > h3 {
@@ -80,4 +94,8 @@ textarea{
 button {
     float: right;
     margin-bottom: 2.5rem;
+}
+
+#darkmodeBtn {
+    float: none;
 }

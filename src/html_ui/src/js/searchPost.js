@@ -50,8 +50,8 @@ $(function() {
                 }).join("")
 
                 html += `
-                <a class="post" href="replyPost.html?_id=${element["_id"]}">
-                    <span class="postWrapper">
+                <a class="post fade-in" href="replyPost.html?_id=${element["_id"]}">
+                    <div>
                         <h3>${element.title}</h3>
                         <small>${element.username}</small>
                         <span class="tags">
@@ -60,7 +60,7 @@ $(function() {
                             </object>
                         </span>
                         <p>${element.content}</p>
-                    </span>
+                    </div>
                 </a>
                 `
                 
@@ -123,7 +123,7 @@ $(function() {
         
                         html += `
                         <a class="post" href="replyPost.html?_id=${element["_id"]}">
-                            <span class="postWrapper">
+                            <div>
                                 <h3>${element.title}</h3>
                                 <small>${element.username}</small>
                                 <span class="tags">
@@ -132,7 +132,7 @@ $(function() {
                                     </object>
                                 </span>
                                 <p>${element.content}</p>
-                            </span>
+                            </div>
                         </a>
                         `
                         

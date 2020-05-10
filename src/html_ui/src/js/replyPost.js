@@ -37,7 +37,6 @@ $(function() {
 
             wrapper.append(postFrame);
             postFrame.append(postTitle, postAuthor, postTags, postContent);
-
             let commentForm = document.createElement('form');
                 commentForm.id = 'addComment';
                 commentForm.method = 'POST';
@@ -51,9 +50,15 @@ $(function() {
                 formContent.required = true;
             let submitBtn = document.createElement('button');
                 submitBtn.innerText = "Submit";
-
-            wrapper.append(commentForm);
-            commentForm.append(formTitle, formContent, submitBtn);
+            
+            if (sessionStorage.getItem('jwt')) {
+                wrapper.append(commentForm);
+                commentForm.append(formTitle, formContent, submitBtn);
+            } else {
+                let loginMessage = document.createElement('h3');
+                    loginMessage.innerText = "To comment on this post, register and login."
+                wrapper.append(loginMessage);
+            }
 
             $('#addComment').submit(function(event) {
                 event.preventDefault();

@@ -64,16 +64,19 @@ ul>li:nth-child(1), .bg-dk ul>li:nth-child(1) {
     box-shadow: none;
     font-size: 1.2rem;
     padding: 0.9rem 0.25rem;
-    color: mediumseagreen;
     background: none;
 }
 
-.bg-dk ul>li:nth-child(1) {
+ul>li:nth-child(1) a {
+    color: mediumseagreen;
+}
+
+.bg-dk ul>li:nth-child(1) a {
     color: rgb(94, 206, 145);
 
 }
 
-ul>li:nth-child(1):hover, .bg-dk ul>li:nth-child(1) {
+ul>li:nth-child(1):hover, .bg-dk ul>li:nth-child(1) a {
     border: 0;
     box-shadow: none;
 }
@@ -92,8 +95,14 @@ a:visited {
 }
 
 * {
+    color: #222;
     font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.bg-dk * {
+    color: whitesmoke;
+}
+
 
 h1, h2, h3, h4, h5, h6, b, small {
     font-family: 'Ubuntu', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -105,6 +114,18 @@ input, textarea {
     border: 1px white solid;
     margin: 0.5rem 0;
     box-shadow: 0 0.15rem 0.75rem #DDD;
+    background: white;
+    border: none;
+    color: #222;
+}
+
+.bg-dk input, .bg-dk textarea {
+    background: #26343D;
+    box-shadow: 0 0.15rem 0.75rem #142027;
+}
+
+.bg-dk textarea::placeholder {
+    color: #6A8597;
 }
 
 button {
@@ -115,20 +136,32 @@ button {
     border: none;
     background: mediumseagreen;
     box-shadow: 0 0 0 mediumseagreen;
-    color: #555;
+    color: white;
     font-family: 'Ubuntu', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
 }
 
 .bg-dk button {
-    color: #6A8597
+    background: #26343D;
+    box-shadow: 0 0.15rem 0.75rem #142027;
+    color: white;
 }
 
-button:hover, button:focus {
+.bg-dk .post button {
+    background: #1B252B;
+    box-shadow: none;
+}
+
+button:hover, button:focus, button.active {
     background: LIMEGREEN;
     box-shadow: 0 0.15rem 0.5rem mediumseagreen;
     transform: translateY(-0.15rem);
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
+}
+
+.bg-dk button:hover, .bg-dk button:focus, .bg-dk button.active {
+    background: #0EA294;
+    box-shadow: 0 0.15rem 0.5rem #0EA294;
 }
 
 #searchInput {
@@ -202,6 +235,7 @@ button:hover, button:focus {
     float: none;
     padding: 0;
     margin: 0;
+    color: #555;
 }
 
 #darkmodeBtn {
@@ -243,6 +277,14 @@ button:hover, button:focus {
     box-shadow: 0.15rem 0.15rem 0.15rem #1B252B;
     left: 1.75rem;
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
+}
+
+span {
+    color: mediumseagreen;
+}
+
+.bg-dk span {
+    color: 
 }
 
 @keyframes fade-in{

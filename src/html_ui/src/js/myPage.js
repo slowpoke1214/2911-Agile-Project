@@ -1,28 +1,6 @@
-
-$(function() {
-    //make user be able to switch to post zone or comment zone
-    let postlot = document.getElementById('postlot');
-    let commentArea = document.getElementById("commentArea");
-    postlot.style.display = "inline"
-    commentArea.style.display = "none"
-
-    let P_btn = $("#pSwitch");
-    let C_btn = $("#cSwitch");
-
-    P_btn.on("click",  () => {
-        postlot.style.display = "inline";
-        commentArea.style.display = "none";
-    })
-    C_btn.on("click",() => {
-        postlot.style.display = "none";
-        commentArea.style.display = "inline";
-    })
+$( () => {
 
     let token = sessionStorage.getItem('jwt');
-    let postNode = document.getElementsByClassName('post')[0];
-    let postObj = postNode.cloneNode(true);
-
-    postNode.remove()
 
     $.ajax({
         url: 'http://127.0.0.1:1337/myPage',
@@ -31,37 +9,25 @@ $(function() {
             'Content-Type': 'application/json; charset=utf-8',
             'Authorization': 'Bearer ' + token
         },
-        success: function(data) {
-            console.log(data);
-            data.posts.forEach(element => {
-                let newPost = postObj.cloneNode(true);
-                let tags = newPost.getElementsByClassName('tags')[0];
-                let tag = tags.getElementsByTagName('small')[0];
-                element['tag'].forEach(value => {
-                    let newtag = tag.cloneNode(true);
-                    newtag.innerText = value;
-                    //make tags clickable, wrap newtag with <a> tag
-                    let aTag = document.createElement("a")
-                    aTag.href = "relatedPost.html"+"?tag=" + value;
-                    aTag.appendChild(newtag)
+        success: (result) => {
+            result.posts.forEach( data => {
+                let post = document.createElement("div");
+                    post.className = "post postItem fade-in";
+                    post.href = "replyPost.html?_id=" + data._id;
+                let postFrame = document.createElement('div');
+                let postTitle = document.createElement('h3');
+                    postTitle.innerText = data.title;
+                let postAuthor = document.createElement('small');
+                    postAuthor.innerText = data.username;
+                let postTags = document.createElement('div');
+                    postTags.className = "tags";
+                let postContent = document.createElement('p');
+                    postContent.innerText = data.content;
+                let deleteButton = document.createElement('button');
+                    deleteButton.className = "delBtn fas fa-trash";
 
-                    tags.appendChild(aTag);
-                })
-                tag.remove();
-                newPost.href = "replyPost.html" + "?_id=" + element["_id"];
-                newPost.getElementsByTagName('h3')[0].innerText = element["title"];
-                newPost.getElementsByTagName('p')[0].innerText = element["content"];
-                newPost.getElementsByTagName('small')[0].innerText = element["username"];
-                postlot.appendChild(newPost)
-
-                //add delete button
-                let titleNode = newPost.getElementsByTagName('h3')[0];
-                let delBtn = document.createElement("button");
-                delBtn.innerText = "delete";
-                titleNode.parentNode.insertBefore(delBtn,titleNode);
-
-                delBtn.onclick = () => $.ajax({
-                    url:'http://127.0.0.1:1337/post/delete?_id='+element._id,
+                deleteButton.onclick = () => $.ajax({
+                    url:'http://127.0.0.1:1337/post/delete?_id=' + data._id,
                     method: 'delete',
                     headers: {
                         'Content-Type': 'application/json; charset=utf-8',
@@ -70,55 +36,91 @@ $(function() {
                     success:function(data) {
                         if (data.errorMessage){
                             console.log(data);
-                            alert("deletion fail!")
-                        }else{
-                            console.log(postObj)
-                            newPost.remove();
+                            alert("Deletion failed.")
+                        } else {
+                            post.remove();
                         }
                     }
                 })
-            });
+                
+                data.tag.forEach( tag => {
+                    let postTag = document.createElement('a');
+                        postTag.innerText = tag;
+                        postTag.href = "relatedPost.html?tag=" + tag;
+                    postTags.append(postTag);
+                })
+                    
+                postlot.prepend(post);
+                post.append(postFrame);
+                postFrame.append(postTitle, postAuthor, postTags, postContent, deleteButton);
 
-            data.comments.forEach(element => {
-                let block = document.createElement("div")
-                let contentElement = document.createElement("p")
-                contentElement.innerText = "comment: " + element.content
-                block.appendChild(contentElement)
-                let nameElement = document.createElement("strong")
-                nameElement.innerText = element.username
-                block.appendChild(nameElement)
-                let timeElement = document.createElement("small")
-                timeElement.innerText = element.time
-                block.appendChild(timeElement)
-                commentArea.prepend(block)
-                //add delete button
-                let delBtn = document.createElement("button");
-                delBtn.innerText = "delete";
-                block.insertBefore(delBtn,contentElement);
+            })
 
-                //add post title
-                let h2 = document.createElement("h2");
-                h2.innerText = "Title: " + element.title;
-                block.insertBefore(h2,contentElement);
+            result.comments.forEach(data => {
+                console.table(data);
+                let post = document.createElement("div");
+                    post.className = "post commentItem fade-in";
+                    post.href = "replyPost.html?_id=" + data.id;
+                let postFrame = document.createElement('div');
+                let postTitle = document.createElement('h3');
+                    postTitle.innerText = 'Reply on ' + data.title;
+                let postContent = document.createElement('p');
+                    postContent.innerText = data.content;
+                let postTime = document.createElement('small');
+                    postTime.innerText = new Date(data.time).toLocaleString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: true
+                    });
+                let deleteButton = document.createElement('button');
+                    deleteButton.className = "delBtn fas fa-trash";
 
-
-                delBtn.onclick = () =>  $.ajax({
-                    url:'http://127.0.0.1:1337/comment/delete?_id='+element._id,
+                deleteButton.onclick = () => $.ajax({
+                    url:'http://127.0.0.1:1337/comment/delete?_id=' + data._id,
                     method: 'delete',
                     headers: {
                         'Content-Type': 'application/json; charset=utf-8',
                         'Authorization': 'Bearer ' + token
                     },
                     success:function(data) {
-                        if (data.errorMessage){
+                        if (data.errorMessage) {
                             console.log(data);
-                            alert("deletion fail!")
+                            alert("Deletion failed.")
                         }else{
-                            block.remove();
+                            post.remove();
                         }
                     }
                 })
-            });
+
+                postlot.prepend(post);
+                post.append(postFrame);
+                postFrame.append(postTitle, postTime, postContent, deleteButton);
+            })
+
+            $(".postItem").css("display", "block");
+            $(".commentItem").css("display", "none");
         }
     })
-});
+
+    // make user be able to switch to post zone or comment zone
+    let pSwitch = document.getElementById('pSwitch');
+    let cSwitch = document.getElementById('cSwitch');
+
+    $("#pSwitch").on("click", () => {
+        pSwitch.className = "active";
+        cSwitch.className = "";
+        $(".postItem").css("display", "block");
+        $(".commentItem").css("display", "none");
+    })
+    $("#cSwitch").on("click", () => {
+        cSwitch.className = "active";
+        pSwitch.className = "";
+        $(".commentItem").css("display", "block");
+        $(".postItem").css("display", "none");
+    })
+})
+
+

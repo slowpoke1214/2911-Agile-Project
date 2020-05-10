@@ -18,10 +18,8 @@ let searchForm = document.createElement("form");
     searchForm.id = "searchBar";
     searchForm.className = "fade-in";
     searchForm.append(input, underline, button);
-//put form element into nav column, right after login/logout element
+//put darkmode button into navbar
 let login = document.getElementById('navItemLogin');
-login.parentElement.append(searchForm)
-
 let darkmodeBtn = document.createElement('button');
     darkmodeBtn.id = "darkmodeBtn";
 darkmodeBtn.onclick = () => {
@@ -32,6 +30,8 @@ darkmodeBtn.onclick = () => {
     updateTheme();
 }
 login.parentElement.append(darkmodeBtn);
+//put form element into nav column, right after login/logout element
+login.parentElement.append(searchForm)
 
 
 // Display Menu Item Based on login state
