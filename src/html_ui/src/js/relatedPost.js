@@ -35,13 +35,10 @@ $(function() {
                 
 
             element['tag'].forEach(value => {
-                let tag = document.createElement("small");
-                tag.innerText = value;
                 //make tags clickable, wrap tag with <a> tag
                 let aTag = document.createElement("a")
                 aTag.href = "relatedPost.html"+"?tag=" + value;
-                aTag.appendChild(tag)
-
+                aTag.innerText = value
                 tags.appendChild(aTag);
             })
 

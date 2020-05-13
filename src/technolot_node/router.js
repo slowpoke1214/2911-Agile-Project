@@ -20,6 +20,8 @@ module.exports = function(app) {
     app.get("/post/search",cors(), PostController.GetSearchPosts);
 
     app.delete("/user/delete",cors(),authMiddleware.requireJWT,UserController.DeleteUser);
+    app.post("/post/update",cors(),authMiddleware.requireJWT ,PostController.UpdatePost);
+    app.post("/comment/update" ,cors(), authMiddleware.requireJWT ,CommentController.UpdateComment);
+}
 
-};
 
