@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "start": "cd src/technolot_node"
+  }
+}

@@ -23,5 +23,3 @@ module.exports = function(app) {
     app.post("/post/update",cors(),authMiddleware.requireJWT ,PostController.UpdatePost);
     app.post("/comment/update" ,cors(), authMiddleware.requireJWT ,CommentController.UpdateComment);
 }
-
-
