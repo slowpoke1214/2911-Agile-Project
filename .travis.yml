@@ -4,4 +4,3 @@ node_js:
 
 before_script:
 - cd src/technolot_node
-- npm install -g mocha

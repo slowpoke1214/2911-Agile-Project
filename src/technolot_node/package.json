@@ -20,9 +20,7 @@
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^6.0.1"
-  },
-  "devDependencies": {
+    "passport-local-mongoose": "^6.0.1",
     "chai": "^4.2.0",
     "mocha": "^7.1.2"
   }
