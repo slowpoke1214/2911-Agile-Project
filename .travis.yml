@@ -4,5 +4,5 @@ node_js:
 
 before_script:
 - cd src/technolot_node
-- npm install -g mocha
-- npm install -g chai
+- npm install --save-dev mocha
+- npm install --save-dev chai
