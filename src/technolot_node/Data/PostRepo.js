@@ -25,6 +25,15 @@ class PostRepo {
         return posts;
     }
 
+    async updatePost(id, content) {
+        var post = await Post.updateOne({_id: id},{
+            $set: {
+                content: content
+            }
+        })
+        return post
+    }
+
     async getRelatedPosts(tag){
         var posts = await Post.find({tag:tag}).exec()
         return posts
