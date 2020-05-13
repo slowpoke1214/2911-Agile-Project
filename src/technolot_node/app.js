@@ -6,6 +6,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var LocalStrategy = require('passport-local').Strategy;
 const DB_URI = "mongodb://localhost:27017/technolotdb";
+const port = process.env.PORT;
 let options = {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -49,7 +50,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 require('./router')(app);
-app.set('port', 1337);
+app.set('port', port);
 app.use(express.static(path.join(__dirname, '../html_ui')));
 
 http.createServer(app).listen(app.get('port'), function(){
