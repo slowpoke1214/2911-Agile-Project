@@ -2,4 +2,6 @@ language: node_js
 node_js:
   - 12
 
-before_script: cd src/technolot_node
+before_script:
+- cd src/technolot_node
+- npm install -g mocha
