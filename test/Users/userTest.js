@@ -6,6 +6,7 @@ Chai is the assertion library being used
 To run the tests, make sure you have ran "npm install" to get the latest modules.
 Then just run "mocha --recursive" to run mocha and it will automatically test any file in the "test" directory
 */
+process.env.NODE_ENV = 'test';
 
 //Imported dependencies
 const assert = require('chai').assert;
@@ -14,13 +15,13 @@ const should = require('chai').should();
 
 const chaiHttp = require('chai-http');
 const chai = require('chai');
-const app = require('../../app.js');
+const app = require('../../src/technolot_node/app.js');
 
 //Configuration of Chai
 chai.use(chaiHttp);
 chai.should();
 
-const UserController = require('../../Controllers/UserController');
+const UserController = require('../../src/technolot_node/Controllers/UserController');
 
 
 
