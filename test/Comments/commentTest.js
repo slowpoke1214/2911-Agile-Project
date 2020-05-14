@@ -53,9 +53,13 @@ describe('Comments', function() {
     });
 
     it('/GET My Page', async function() {
-        const res = await chai.request(app)
-            .get('/myPage')
-            .set('Authorization', 'Bearer ' + jwt);
-        expect(res).to.have.status(200);
+        try {
+            const res = await chai.request(app)
+                .get('/myPage')
+                .set('Authorization', 'Bearer ' + jwt);
+            expect(res).to.have.status(200);
+        } catch (err) {
+            console.log(err)
+        }
     });
 });
