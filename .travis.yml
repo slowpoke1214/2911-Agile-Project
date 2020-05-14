@@ -2,10 +2,5 @@ language: node_js
 node_js:
   - 12
 
-before_script:
-- npm install --save-dev mocha
-- npm install --save-dev chai
-- npm install --save-dev mockgoose
-
 services:
   - mongodb
