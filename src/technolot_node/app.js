@@ -11,17 +11,8 @@ let options = {
     useUnifiedTopology: true
 };
 
-if (process.env.NODE_ENV === 'test')  {
-    const Mockgoose = require('mockgoose').Mockgoose;
-    const mockgoose = new Mockgoose(mongoose);
+mongoose.connect(DB_URI, options);
 
-    mockgoose.prepareStorage()
-        .then(() => {
-            mongoose.connect(DB_URI, options)
-        })
-} else {
-    mongoose.connect(DB_URI, options)
-}
 
 var app = express();
 var cors = require('cors');

@@ -6,7 +6,6 @@ Chai is the assertion library being used
 To run the tests, make sure you have ran "npm install" to get the latest modules.
 Then just run "mocha --recursive" to run mocha and it will automatically test any file in the "test" directory
 */
-process.env.NODE_ENV = 'test';
 
 //Imported dependencies
 const assert = require('chai').assert;
