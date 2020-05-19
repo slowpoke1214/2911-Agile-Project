@@ -16,5 +16,11 @@ module.exports = function(app) {
 
     app.delete("/post/delete",cors(), authMiddleware.requireJWT , PostController.DelPost);
     app.delete("/comment/delete",cors(), authMiddleware.requireJWT , CommentController.DelComment);
+
+    app.get("/post/search",cors(), PostController.GetSearchPosts);
+
+    app.post("/post/update",cors(),authMiddleware.requireJWT ,PostController.UpdatePost);
+    app.post("/comment/update" ,cors(), authMiddleware.requireJWT ,CommentController.UpdateComment);
 }
+
 

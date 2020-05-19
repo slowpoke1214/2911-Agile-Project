@@ -24,12 +24,22 @@
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
 }
 
+.bg-dk .post>div {
+    background: #26343D;
+    box-shadow: 0 0.15rem 0.75rem #142027;
+}
+
 .post:hover>div, .post:focus>div {
     box-shadow: 0 0.5rem 3rem #CCC;
     border-radius: 6px;
     transform: translateY(-0.25rem) scale(1.025);
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
     z-index: 999;
+}
+
+.bg-dk .post:hover>div, .bg-dk .post:focus>div {
+    box-shadow: 0 0.5rem 2rem rgba(14, 162, 148, 0.4), 0 -0.5rem 5rem rgba(14, 162, 148, 0.4) inset;
+    border: 0.5px solid #0EA294;
 }
 
 .post:hover > div > .tag > a, .post:focus > div > .tag > a {
@@ -47,16 +57,28 @@
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8), white);
 }
 
+.bg-dk .post>div::after {
+    content: none;
+}
+
 .post>div>h3,
 .post>div>small {
     flex: 0 0 auto;
     margin-bottom: 0.25rem;
 }
 
+.bg-dk .post>div>h3, .bg-dk .post>div>small {
+    color: #EEE;
+}
+
 .post>div>p {
     color: #666;
     flex: 1 1 auto;
     margin-top: 0.5rem;
+}
+
+.bg-dk .post>div>p {
+    color: #6A8597;
 }
 
 #wrapper {
@@ -74,7 +96,7 @@
     margin: 0.5rem 0;
 }
 
-.tags > a  {
+.tags > a {
     display: block;
     background: mediumseagreen;
     box-shadow: 0 0 0 mediumseagreen;
@@ -86,9 +108,19 @@
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
 }
 
-.tags > a:hover, .tags > a:focus {
+.bg-dk .tags > a {
+    background: #1B252B;
+    box-shadow: #1B252B;
+}
+
+.tags > a:hover,.tags > a:focus  {
     background: LIMEGREEN;
     box-shadow: 0 0.15rem 0.5rem mediumseagreen;
     transform: translateY(-0.15rem);
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
+}
+
+.bg-dk .tags > a:hover, .bg-dk .tags > a:focus {
+    background: #0EA294;
+    box-shadow: 0 0.15rem 0.5rem #0EA294;
 }

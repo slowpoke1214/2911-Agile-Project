@@ -3,6 +3,23 @@ const PostRepo = require('../Data/PostRepo');
 const _postRepo = new PostRepo();
 const Post = require('../Models/Post')
 
+exports.UpdatePost = async function(req,res){
+    let reqInfo = await RequestService.jwtReqHelper(req, []);
+    if (reqInfo.authenticated) {
+        let id = req.body.id;
+        let content = req.body.content;
+        let status  = await _postRepo.updatePost(id, content);
+        res.json(status)
+    } else {
+        res.json({errorMessage:"Not authenticated!"});
+    }
+}
+
+exports.GetSearchPosts = async function(req, res){
+    let search = req.query.search
+    let posts = await _postRepo.getSearchPosts(search);
+    res.json(posts)
+}
 
 exports.DelPost = async function(req,res){
     let reqInfo = await RequestService.jwtReqHelper(req, []);
@@ -11,7 +28,7 @@ exports.DelPost = async function(req,res){
         let status = await _postRepo.delPost(id);
         res.json({status:status, errorMessage:""});
     }else{
-        res.json({errorMessage:"Not authenticated!"})
+        res.json({errorMessage:"Not authenticated!"});
     }
 }
 

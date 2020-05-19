@@ -18,10 +18,21 @@ let searchForm = document.createElement("form");
     searchForm.id = "searchBar";
     searchForm.className = "fade-in";
     searchForm.append(input, underline, button);
-//put form element into nav column, right after login/logout element
+//put darkmode button into navbar
 let login = document.getElementById('navItemLogin');
+let darkmodeBtn = document.createElement('button');
+    darkmodeBtn.id = "darkmodeBtn"
+    // darkmodeBtn.innerHTML = "Dark Mode";
+darkmodeBtn.onclick = () => {
+    if (sessionStorage.getItem('darkmode') == 'true') 
+        sessionStorage.setItem('darkmode', 'false')
+    else 
+        sessionStorage.setItem('darkmode', 'true')
+    updateTheme();
+}
+login.parentElement.append(darkmodeBtn);
+//put form element into nav column, right after login/logout element
 login.parentElement.append(searchForm)
-
 
 
 // Display Menu Item Based on login state
@@ -34,7 +45,17 @@ if (sessionStorage.getItem('jwt')) {
     document.getElementById('navItemMyPage').remove();
 }
 
+function updateTheme() {
+    if (sessionStorage.getItem('darkmode') == 'true') {
+        document.body.className = 'bg-dk';
+    } else {
+        document.body.className = '';
+    }
+}
+
 $('#searchBar').submit( function(event) {
     event.preventDefault();
-    window.location.href = './relatedPost.html?tag=' + input.value;
+    window.location.replace('./searchPost.html?search=' + input.value);
 })
+
+updateTheme();
