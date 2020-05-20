@@ -294,6 +294,8 @@ span {
     left: 150%;
     pointer-events: none;
     cursor: none;
+    display: inline-block;
+    width: 5rem;
 }
 
 @keyframes fade-in{
