@@ -301,7 +301,7 @@ span {
 
 .bg-dk #darkmodeBtn::before {
     content: "Light Mode";
-    color: white;
+    color: whitesmoke;
     transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
 }
 
