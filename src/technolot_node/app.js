@@ -6,7 +6,6 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var LocalStrategy = require('passport-local').Strategy;
 const DB_URI = "mongodb://localhost:27017/technolotdb";
-const port = process.env.PORT || 1337;
 let options = {
     useNewUrlParser: true,
     useUnifiedTopology: true
