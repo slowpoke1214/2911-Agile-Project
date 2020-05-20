@@ -287,6 +287,15 @@ span {
     color: #5ece91;
 }
 
+#darkmodeBtn::before {
+    content: "Dark Mode";
+    position: relative;
+    color: #1B252B;
+    left: 150%;
+    pointer-events: none;
+    cursor: none;
+}
+
 @keyframes fade-in{
     from {
         opacity: 0;

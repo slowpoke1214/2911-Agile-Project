@@ -3,6 +3,7 @@
 node_modules
 /src/technolot_node/node_modules
 .env
+package-lock.json
 
 #Logs
 logs
