@@ -16,7 +16,6 @@ module.exports = function(app) {
 
     app.delete("/post/delete",cors(), authMiddleware.requireJWT , PostController.DelPost);
     app.delete("/comment/delete",cors(), authMiddleware.requireJWT , CommentController.DelComment);
-
     app.get("/post/search",cors(), PostController.GetSearchPosts);
 
     app.delete("/user/delete",cors(),authMiddleware.requireJWT,UserController.DeleteUser);
