@@ -13,3 +13,25 @@ h1, button {
     bottom: 0rem;
     z-index: 99;
 }
+
+.editBtn {
+    display: block;
+    position: absolute;
+    right: 3.5rem;
+    bottom: 0rem;
+    z-index: 99;
+}
+
+h3 {
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
+}
+
+h3:hover {
+    color: LIMEGREEN;
+    transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
+}
+
+.bg-dk .post>div>h3:hover {
+    color: #0EA294;
+}

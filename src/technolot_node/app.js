@@ -10,8 +10,10 @@ const port = process.env.PORT;
 let options = {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}
-mongoose.connect(DB_URI, options)
+};
+
+mongoose.connect(DB_URI, options);
+
 
 var app = express();
 var cors = require('cors');

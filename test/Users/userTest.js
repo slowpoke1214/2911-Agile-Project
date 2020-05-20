@@ -14,13 +14,13 @@ const should = require('chai').should();
 
 const chaiHttp = require('chai-http');
 const chai = require('chai');
-const app = require('../../app.js');
+const app = require('../../src/technolot_node/app.js');
 
 //Configuration of Chai
 chai.use(chaiHttp);
 chai.should();
 
-const UserController = require('../../Controllers/UserController');
+const UserController = require('../../src/technolot_node/Controllers/UserController');
 
 
 

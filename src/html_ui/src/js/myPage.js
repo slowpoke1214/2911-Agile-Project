@@ -1,7 +1,7 @@
 $( () => {
 
     let token = sessionStorage.getItem('jwt');
-
+    //send a get request to http://127.0.0.1:1337/myPage
     $.ajax({
         url: 'http://127.0.0.1:1337/myPage',
         method: 'get',
@@ -11,20 +11,39 @@ $( () => {
         },
         success: (result) => {
             result.posts.forEach( data => {
+                //create the elements we need in a card of a post/comment 
                 let post = document.createElement("div");
                     post.className = "post postItem fade-in";
-                    post.href = "replyPost.html?_id=" + data._id;
+
+
                 let postFrame = document.createElement('div');
+
                 let postTitle = document.createElement('h3');
                     postTitle.innerText = data.title;
+                    postTitle.addEventListener("click", () => {
+                        window.location.href = "replyPost.html?_id=" + data._id;
+                    });
+
                 let postAuthor = document.createElement('small');
                     postAuthor.innerText = data.username;
+
                 let postTags = document.createElement('div');
                     postTags.className = "tags";
+                    
                 let postContent = document.createElement('p');
                     postContent.innerText = data.content;
+                    //create edit button
+                let editButton = document.createElement('button');
+                    editButton.className = "editBtn fas fa-edit";
+                    //create delete button
                 let deleteButton = document.createElement('button');
                     deleteButton.className = "delBtn fas fa-trash";
+
+                
+
+                editButton.onclick = () => {
+                    window.location.href = "/updatePost.html?_id=" + data._id;
+                }
 
                 deleteButton.onclick = () => $.ajax({
                     url:'http://127.0.0.1:1337/post/delete?_id=' + data._id,
@@ -33,7 +52,7 @@ $( () => {
                         'Content-Type': 'application/json; charset=utf-8',
                         'Authorization': 'Bearer ' + token
                     },
-                    success:function(data) {
+                    success: function(data) {
                         if (data.errorMessage){
                             console.log(data);
                             alert("Deletion failed.")
@@ -42,7 +61,7 @@ $( () => {
                         }
                     }
                 })
-                
+                //<a> </a>
                 data.tag.forEach( tag => {
                     let postTag = document.createElement('a');
                         postTag.innerText = tag;
@@ -52,7 +71,7 @@ $( () => {
                     
                 postlot.prepend(post);
                 post.append(postFrame);
-                postFrame.append(postTitle, postAuthor, postTags, postContent, deleteButton);
+                postFrame.append(postTitle, postAuthor, postTags, postContent, editButton, deleteButton);
 
             })
 
@@ -77,6 +96,7 @@ $( () => {
                     });
                 let deleteButton = document.createElement('button');
                     deleteButton.className = "delBtn fas fa-trash";
+
 
                 deleteButton.onclick = () => $.ajax({
                     url:'http://127.0.0.1:1337/comment/delete?_id=' + data._id,

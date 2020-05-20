@@ -3,6 +3,27 @@ const Comment = require('../Models/Comment');
 class CommentRepo {
     CommentRepo() { }
 
+    async updateComment(id, content) {
+        var post = await Comment.updateOne({_id: id},{
+            $set: {
+                content: content
+            }
+        }, function(error, result) {
+            if (error) {
+                return {
+                    errorMessage: error,
+                    result: result
+                }
+            } else {
+                return {
+                    errorMessage: '',
+                    result: result
+                }
+            }
+        })
+    }
+
+
     async delComment(id){
         console.log("id",id)
         var status = await Comment.deleteOne({_id:id})

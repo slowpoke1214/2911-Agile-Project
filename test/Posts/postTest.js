@@ -14,7 +14,7 @@ const should = require('chai').should();
 
 const chaiHttp = require('chai-http');
 const chai = require('chai');
-const app = require('../../app.js');
+const app = require('../../src/technolot_node/app.js');
 
 //Configuration of Chai
 chai.use(chaiHttp);
@@ -23,15 +23,33 @@ chai.should();
 
 describe('Posts', function() {
     var jwt = '';
-    var username = 'joek';
+    var username = 'UnitTest';
+    var email = 'UnitTesting@test.com';
     var password = '123';
+    var passwordConfirm = '123';
     var post_id = '';
+
+    before('should register a new user', async function () {
+        const res = await chai.request(app).post('/registerUser')
+            .send({'username': username, 'email': email, 'password': password, 'passwordConfirm': passwordConfirm})
+
+        expect(res).to.have.status(200);
+    });
 
     //Activates only once at the beginning of this "describe" block.
     before('/POST "/login"', async function() {
         const res = await chai.request(app).post('/login')
             .send({'username': username, 'password': password});
         jwt = res.body.token;
+    });
+
+    after('should delete the new user that was registered.', async function () {
+        const res = await chai.request(app).delete('/user/delete')
+            .set('Content-Type', 'application/json; charset=utf-8')
+            .set('Authorization', 'Bearer ' + jwt)
+            .send({'username': username});
+
+        expect(res).to.have.status(200);
     });
 
     it('/POST Creates a single Post.', async function() {
