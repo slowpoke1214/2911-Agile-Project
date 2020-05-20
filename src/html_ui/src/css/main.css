@@ -296,6 +296,13 @@ span {
     cursor: none;
     display: inline-block;
     width: 5rem;
+    transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
+}
+
+.bg-dk #darkmodeBtn::before {
+    content: "Light Mode";
+    color: white;
+    transition: all 0.25s cubic-bezier(0.1, 0.8, 0.3, 0.9);
 }
 
 @keyframes fade-in{
