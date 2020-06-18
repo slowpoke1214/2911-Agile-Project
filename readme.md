@@ -13,11 +13,11 @@ You need to have [mongodb](https://www.mongodb.com/download-center/community) in
 
 
 ``` bash
-# navigate to node project folder
-cd ./demo/src/technolot_node
-
 # npm install node_modules
-npm i
+npm install
+
+# navigate to node project folder
+cd ./src/technolot_node
 
 # Run the node app
 node app.js
